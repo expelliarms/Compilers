@@ -1,0 +1,10 @@
+#! /bin/bash
+
+filename="`basename $1 .c`"
+if [ -e a.out ]
+then
+	./a.out < $filename.c > $filename.s
+	gcc -m32 -o $filename.out $filename.s myl.c
+else
+	echo "error: compiler not found, first run make command"
+fi
